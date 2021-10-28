@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Breaking Changes
+
+-   The peer `puppeteer` dependency has been updated from requiring `>=1.19` to requiring `>=10` (see [Breaking Changes](https://github.com/puppeteer/puppeteer/releases/tag/v10.0.0), [#36040](https://github.com/WordPress/gutenberg/pull/36040)).
+
+### New Features
+
 -   Added `disablePageDialogAccept` - Disable auto-accepting dialogs enabled by `enablePageDialogAccept` [#35828](https://github.com/WordPress/gutenberg/pull/35828).
 
 ## 5.4.0 (2021-07-21)

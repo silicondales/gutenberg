@@ -5,6 +5,7 @@
 ### Enhancements
 
 -   Increase the timeout for e2e tests to 30 seconds ([#35983](https://github.com/WordPress/gutenberg/pull/35983)).
+-   The `puppeteer-core` dependency has been updated from requiring `^10.1.0` to requiring `^10.4.0` ([#36040](https://github.com/WordPress/gutenberg/pull/36040)).
 
 ## 19.0.0 (2021-10-22)
 
