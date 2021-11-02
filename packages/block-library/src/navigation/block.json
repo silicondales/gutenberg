@@ -51,6 +51,14 @@
 			"type": "string",
 			"default": "mobile"
 		},
+		"label": {
+			"type": "string",
+			"default": "Menu"
+		},
+		"useLabel": {
+			"type": "boolean",
+			"default": false
+		},
 		"__unstableLocation": {
 			"type": "string"
 		},

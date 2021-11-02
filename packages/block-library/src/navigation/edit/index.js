@@ -29,6 +29,7 @@ import {
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	ToolbarGroup,
 	ToolbarDropdownMenu,
+	TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -98,10 +99,12 @@ function Navigation( {
 	const {
 		navigationMenuId,
 		itemsJustification,
+		label,
 		openSubmenusOnClick,
 		orientation,
 		overlayMenu,
 		showSubmenuIcon,
+		useLabel,
 	} = attributes;
 
 	const [ hasAlreadyRendered, RecursionProvider ] = useNoRecursiveRenders(
@@ -340,6 +343,32 @@ function Navigation( {
 									label={ __( 'Always' ) }
 								/>
 							</ToggleGroupControl>
+							<ToggleControl
+								checked={ useLabel }
+								label={ __(
+									'Use a text label in the toggle button.'
+								) }
+								help={ __(
+									'Choose whether to display an icon or a text label on the toggle button.'
+								) }
+								onChange={ ( value ) =>
+									setAttributes( { useLabel: value } )
+								}
+							/>
+							{ useLabel && (
+								<TextControl
+									autoComplete="off"
+									onChange={ ( value ) =>
+										setAttributes( { label: value } )
+									}
+									placeholder={ __( 'Toggle button text' ) }
+									label={ __( 'Label text' ) }
+									value={ label }
+									help={ __(
+										'Text to be displayed on the toggle button.'
+									) }
+								/>
+							) }
 							<h3>{ __( 'Submenus' ) }</h3>
 							<ToggleControl
 								checked={ openSubmenusOnClick }
@@ -429,6 +458,11 @@ function Navigation( {
 						<ResponsiveWrapper
 							id={ clientId }
 							onToggle={ setResponsiveMenuVisibility }
+							onLabelChange={ ( value ) =>
+								setAttributes( { label: value } )
+							}
+							label={ label }
+							useLabel={ useLabel }
 							isOpen={ isResponsiveMenuOpen }
 							isResponsive={ 'never' !== overlayMenu }
 							isHiddenByDefault={ 'always' === overlayMenu }
