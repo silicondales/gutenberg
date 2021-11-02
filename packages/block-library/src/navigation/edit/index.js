@@ -256,6 +256,8 @@ function Navigation( {
 			? [ 'left', 'center', 'right' ]
 			: [ 'left', 'center', 'right', 'space-between' ];
 
+	const isResponsive = 'never' !== overlayMenu;
+
 	return (
 		<EntityProvider
 			kind="postType"
@@ -343,19 +345,21 @@ function Navigation( {
 									label={ __( 'Always' ) }
 								/>
 							</ToggleGroupControl>
-							<ToggleControl
-								checked={ useLabel }
-								label={ __(
-									'Use a text label in the toggle button.'
-								) }
-								help={ __(
-									'Choose whether to display an icon or a text label on the toggle button.'
-								) }
-								onChange={ ( value ) =>
-									setAttributes( { useLabel: value } )
-								}
-							/>
-							{ useLabel && (
+							{ isResponsive && (
+								<ToggleControl
+									checked={ useLabel }
+									label={ __(
+										'Use a text label in the toggle button.'
+									) }
+									help={ __(
+										'Choose whether to display an icon or a text label on the toggle button.'
+									) }
+									onChange={ ( value ) =>
+										setAttributes( { useLabel: value } )
+									}
+								/>
+							) }
+							{ isResponsive && useLabel && (
 								<TextControl
 									autoComplete="off"
 									onChange={ ( value ) =>
@@ -464,7 +468,7 @@ function Navigation( {
 							label={ label }
 							useLabel={ useLabel }
 							isOpen={ isResponsiveMenuOpen }
-							isResponsive={ 'never' !== overlayMenu }
+							isResponsive={ isResponsive }
 							isHiddenByDefault={ 'always' === overlayMenu }
 						>
 							{ isEntityAvailable && (
