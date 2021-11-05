@@ -429,9 +429,6 @@
 
 	.wp-block-navigation__responsive-container-content {
 		display: flex;
-
-		// Always vertically align to the top.
-		justify-content: flex-start;
 	}
 
 	// Overlay menu.
@@ -457,6 +454,9 @@
 			display: flex;
 			flex-direction: column;
 			padding: 0;
+
+			// Always vertically align to the top.
+			justify-content: flex-start;
 
 			.wp-block-navigation__submenu-icon {
 				display: none;
